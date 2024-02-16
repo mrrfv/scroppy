@@ -1,14 +1,22 @@
 # Scroppy (Scrobble Copy)
 
-Music collectors listen to hundreds of artists. Their libraries can take up hundreds of gigabytes or even terabytes of space. However, our phones don't have this much storage space. This gives you two options: either you can stream your music from a server, which doesn't work offline, or cherry-pick and copy some artists to your phone.
+Music collectors listen to hundreds of artists. Their libraries can take up hundreds of gigabytes or even terabytes of space. However, phones don't have this much storage space. This gives them two options: either they can stream their music from a server, which doesn't work offline, or cherry-pick and copy some artists to their phone, which can be a tedious process if done manually.
 
 Scroppy helps you with the latter by completely automating the process of copying your favorite artists somewhere else. It does this by reading your top artists on Last.fm, matching them to directories in your library and copying them to a destination of your choice.
+
+## Features
+
+- Reads the artists from your Last.fm profile: can be all of them, or the first x
+- Configurable date range for the Last.fm data
+- Matches the artists to directories in your music library using fuzzy string matching, so small naming differences don't cause problems
+- Copies the matched directories to a destination of your choice
+- Can optionally copy artists until a certain size is reached, e.g. 10 GB
 
 ## Instructions
 
 ### You need
 
-- Basic knowledge of Node.js and the command line. Node.js and npm should be installed on your system.
+- Basic knowledge of Node.js and the command line. Node.js (v20 or higher is preferred) and npm should be installed on your system.
 - A Last.fm account with an [API key](https://www.last.fm/api/account/create)
 - Some destination where you want to copy your music to
 - Music library with a specific directory structure where the artist name is the top-level directory. Examples:
