@@ -13,7 +13,7 @@
   "dependencies": {
     "chalk": "^5.4.1",
     "dotenv": "^16.4.7",
-    "fuse.js": "^7.0.0",
+    "fuse.js": "^7.1.0",
     "get-folder-size": "^5.0.0"
   }
 }
