@@ -12,7 +12,7 @@
   "license": "AGPL-3.0-or-later",
   "dependencies": {
     "chalk": "^5.4.1",
-    "dotenv": "^16.5.0",
+    "dotenv": "^17.2.0",
     "fuse.js": "^7.1.0",
     "get-folder-size": "^5.0.0"
   }
