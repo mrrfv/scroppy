@@ -11,7 +11,7 @@
   "author": "",
   "license": "AGPL-3.0-or-later",
   "dependencies": {
-    "chalk": "^5.6.0",
+    "chalk": "^5.6.2",
     "dotenv": "^17.2.2",
     "fuse.js": "^7.1.0",
     "get-folder-size": "^5.0.0"
