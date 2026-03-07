@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import { getTopArtists } from "./last.fm.js";
 import fs from 'fs/promises';
+import path from 'path';
 import Fuse from 'fuse.js';
 import chalk from 'chalk';
 import getFolderSize from 'get-folder-size';
@@ -42,8 +43,28 @@ async function work(page, fuse) {
 
         // Copy the directory to the destination
         const artistDir = `${process.env.MUSIC_DIR}/${result.item}`;
+        const destDir = `${process.env.DESTINATION_DIR}/${result.item}`;
         try {
-            await fs.cp(artistDir, `${process.env.DESTINATION_DIR}/${result.item}`, { recursive: true });
+            await fs.cp(artistDir, destDir, {
+                recursive: true,
+                preserveTimestamps: true,
+                filter: async (src, dest) => {
+                    const srcStat = await fs.stat(src);
+                    if (srcStat.isDirectory()) return true;
+
+                    try {
+                        const destStat = await fs.stat(dest);
+                        if (srcStat.size === destStat.size && srcStat.mtimeMs === destStat.mtimeMs) {
+                            console.log(chalk.gray(`Skipping unchanged file: ${path.basename(src)}`));
+                            return false;
+                        }
+                    } catch (e) {
+                        // File doesn't exist in destination, copy it
+                        return true;
+                    }
+                    return true;
+                }
+            });
         } catch (e) {
             console.log(chalk.bgRed(`Couldn't process ${artist.name}: ${e.message}`));
         }
