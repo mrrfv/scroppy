@@ -1,3 +1,8 @@
+> [!IMPORTANT]  
+> Moved to Codeberg. Please continue [here](https://codeberg.org/mrrfv/scroppy).
+
+---
+
 # Scroppy (Scrobble Copy)
 
 Music collectors listen to hundreds of artists. Their libraries can take up hundreds of gigabytes or even terabytes of space. However, phones don't have this much storage space. This gives them two options: either they can stream their music from a server, which doesn't work offline, or cherry-pick and copy some artists to their phone, which can be a tedious process if done manually.
